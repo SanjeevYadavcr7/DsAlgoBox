@@ -5,13 +5,18 @@ void moveZeroes(vector<int>& nums) {
     int i = 0, j = 0;
     int n = nums.size();
     while(j < n) {
-        if(nums[i] == 0 && nums[j] == 0) j++;
-        else if(nums[i] != 0 && nums[j] != 0) i++, j++;
-        else if(nums[i] == 0 && nums[j] != 0) {
-            nums[i] = nums[j];
-            nums[j] = 0;
-            i++, j++;
-        } 
+        if(i == j) j++;
+        if(nums[i] == 0 && nums[j] != 0) {
+            swap(nums[i], nums[j]);?
+        }
+
+        if(!nums[i] && !nums[j]) {
+            j++;
+        }
+        else {
+            i++;
+            j++;  
+        }      
     }
 }
 
@@ -23,6 +28,7 @@ int main() {
 
     moveZeroes(arr);
     for(int &i : arr) cout << i << " ";
+    cout << endl;
 
     return 0;
 }
